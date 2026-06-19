@@ -72,12 +72,14 @@
     }
     .nav-links a:hover { color: var(--white); border-bottom-color: var(--blue-lt); }
     .nav-cta {
-      background: var(--blue); color: var(--white) !important;
-      padding: 10px 20px !important; height: auto !important;
+      background: var(--wa); color: #0a1a0a !important;
+      padding: 10px 14px !important; height: auto !important;
       border-bottom: none !important; margin-bottom: 0 !important;
-      font-size: 12px !important;
+      display: inline-flex !important; align-items: center !important;
+      border-radius: 4px;
     }
-    .nav-cta:hover { background: var(--blue-dk); opacity: 1; }
+    .nav-cta svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .nav-cta:hover { opacity: 0.85; background: var(--wa) !important; }
     .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--white); font-size: 26px; }
 
     /* ─── HERO ─── */
@@ -195,7 +197,7 @@
     /* ─── SERVICES GRID ─── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px; background: rgba(104,114,181,0.15);
     }
     .service-card {
@@ -389,7 +391,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#contact-form">Get a quote</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a class="nav-cta" href="https://wa.me/263785378523?text=Hi%2C%20I%27d%20like%20to%20book%20a%20service" target="_blank" rel="noopener">WhatsApp us</a></li>
+    <li><a class="nav-cta" href="https://wa.me/263785378523?text=Hi%2C%20I%27d%20like%20to%20book%20a%20service" target="_blank" rel="noopener" aria-label="WhatsApp us"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.514 5.838L.057 23.032a.75.75 0 0 0 .916.915l5.195-1.457A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.942-1.353l-.354-.21-3.668 1.028 1.03-3.668-.21-.354A9.694 9.694 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg></a></li>
   </ul>
 </nav>
 
@@ -484,12 +486,6 @@
     </div>
 
     <div class="service-card">
-      <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
-      <div class="svc-name">Air conditioning</div>
-      <p class="svc-desc">Re-gas, leak detection, compressor repairs, and full AC system checks to keep your cabin cool.</p>
-    </div>
-
-    <div class="service-card">
       <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6l9-3 9 3M3 18l9 3 9-3"/></svg></div>
       <div class="svc-name">Car towing</div>
       <p class="svc-desc">Stuck on the road? We offer vehicle towing to get you and your car safely to our workshop.</p>
@@ -502,7 +498,7 @@
 <section id="contact-form" class="section-dark" style="background: var(--navy-deep);">
   <div class="help-grid">
     <!-- LEFT -->
-    <div class="help-left">
+    <div class="help-left" style="display:flex;flex-direction:column;gap:0;">
       <div class="sec-eye eye-lt"><span></span>How can we help you?</div>
       <h2 class="sec-head dark-head" style="margin-bottom:1rem;">Get a <em class="lt">free quote</em></h2>
       <p class="sec-sub dark-sub" style="margin-bottom:2rem;">7 Seas Motor Mechanics offer a wide range of services, keeping Bulawayo motorists safe on the road. Our garage services and repairs include:</p>
@@ -540,6 +536,22 @@
           Car towing
         </li>
       </ul>
+
+      <!-- WHATSAPP INLINE -->
+      <div id="whatsapp" style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(183,182,182,0.1);">
+        <div class="sec-eye eye-lt" style="margin-bottom:0.5rem;"><span></span>Quickest way to reach us</div>
+        <h2 style="font-family:var(--font-h);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem;">Chat with us on WhatsApp</h2>
+        <p style="font-size:14px;color:var(--engine-lt);margin-bottom:1.25rem;">Not sure what's wrong? Send us a message and we'll advise you — no obligation, no jargon.</p>
+        <div class="wa-steps" style="margin-bottom:1.5rem;">
+          <span class="wa-step">1. Tap the button</span>
+          <span class="wa-step">2. Describe your vehicle &amp; issue</span>
+          <span class="wa-step">3. We reply fast</span>
+        </div>
+        <a class="btn-wa-lg" href="https://wa.me/263785378523?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20repair%20or%20service" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.514 5.838L.057 23.032a.75.75 0 0 0 .916.915l5.195-1.457A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.942-1.353l-.354-.21-3.668 1.028 1.03-3.668-.21-.354A9.694 9.694 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Open WhatsApp chat
+        </a>
+      </div>
     </div>
 
     <!-- RIGHT: FORM -->
@@ -572,24 +584,7 @@
   </div>
 </section>
 
-<!-- WHATSAPP STRIP -->
-<div id="whatsapp" class="wa-strip">
-  <div class="wa-strip-text">
-    <div class="sec-eye eye-lt" style="margin-bottom:0.5rem;"><span></span>Quickest way to reach us</div>
-    <h2>Chat with us on WhatsApp</h2>
-    <p>Not sure what's wrong? Send us a message and we'll advise you — no obligation, no jargon.</p>
-    <div class="wa-steps">
-      <span class="wa-step">1. Tap the button</span>
-      <span class="wa-step">2. Describe your vehicle &amp; issue</span>
-      <span class="wa-step">3. We reply fast</span>
-    </div>
-    <a class="btn-wa-lg" href="https://wa.me/263785378523?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20repair%20or%20service" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.514 5.838L.057 23.032a.75.75 0 0 0 .916.915l5.195-1.457A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.694 9.694 0 0 1-4.942-1.353l-.354-.21-3.668 1.028 1.03-3.668-.21-.354A9.694 9.694 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-      Open WhatsApp chat
-    </a>
-  </div>
-  <img src="logo.png" alt="7 Seas Motor Mechanics" style="height:120px;width:auto;opacity:0.7;" />
-</div>
+
 
 <!-- CONTACT INFO -->
 <section id="contact" class="section-dark">
